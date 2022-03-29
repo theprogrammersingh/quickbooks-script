@@ -56,6 +56,7 @@ const readSheet = () => {
 // ******************************************** define QBO functions *****************************************************
 const createCustomer = (displayName) => {
   const promise = new Promise((reject, resolve) => {
+    console.log("Creating Customer", displayName);
     qbo.createCustomer({ DisplayName: displayName }, function (err, customer) {
       if (err) {
         reject(err);
@@ -66,6 +67,7 @@ const createCustomer = (displayName) => {
       const customersRes = JSON.parse(fs.readFileSync("./data/customers-res.json"));
       customersRes.push(customer);
       fs.writeFileSync("./data/customers-res.json", JSON.stringify(customersRes));
+      console.log('Created Customer', displayName);
       resolve(customer);
     });
   });
