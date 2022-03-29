@@ -249,20 +249,20 @@ const refreshToken = async () => {
 };
 
 const runScript = async () => {
-  try {
-    let customers = fs.readFileSync("./data/customers.json");
-    customers = JSON.parse(customers);
-    if (Array.isArray(customers)) {
-      for(let i = 0; i < customers.length; i++) {
+  let customers = fs.readFileSync("./data/customers.json");
+  customers = JSON.parse(customers);
+  if (Array.isArray(customers)) {
+    for (let i = 0; i < customers.length; i++) {
+      try {
         await sleep(1000);
         await createCustomer(customers[i]['DisplayName']);
         if (i % 3000 == 0) {
           await refreshToken();
         }
+      } catch (err) {
+        console.log(err);
       }
     }
-  } catch (err) {
-    console.log(err);
   }
 
 };
