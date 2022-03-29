@@ -391,6 +391,6 @@ app.get("/run", function (req, res) {
 /**
  * Start server on HTTP (will use ngrok for HTTPS forwarding)
  */
-const server = app.listen(process.env.PORT || 3000, () => {
+const server = app.listen(process.env.PORT || 80, () => {
   console.log(`💻 Server listening on port ${server.address().port}`);
 });
