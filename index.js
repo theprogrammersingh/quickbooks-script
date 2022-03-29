@@ -253,13 +253,13 @@ const runScript = async () => {
     let customers = fs.readFileSync("./data/customers.json");
     customers = JSON.parse(customers);
     if (Array.isArray(customers)) {
-      customers.forEach(async (customer, i) => {
+      for(let i = 0; i < customers.length; i++) {
         await sleep(1000);
         await createCustomer(customer['DisplayName']);
         if (i % 3000 == 0) {
           await refreshToken();
         }
-      });
+      }
     }
   } catch (err) {
     console.log(err);
