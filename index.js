@@ -249,7 +249,7 @@ const runScript = async () => {
   const customers = fs.readFileSync("./data/customers.json");
   customers = JSON.parse(customers);
   if(Array.isArray(customers)){
-    customers.forEach((customer, i) => {
+    customers.forEach(async (customer, i) => {
       await sleep(1000);
       await createCustomer(customer[0].name);
       if (i%3000 == 0){
