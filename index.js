@@ -216,7 +216,7 @@ const run = () => {
     scope: [OAuthClient.scopes.Accounting, OAuthClient.scopes.OpenId],
     state: "intuit-test",
   });
-  open(authUri);
+  console.log(authUri);
 };
 
 const refreshToken = async () => {
