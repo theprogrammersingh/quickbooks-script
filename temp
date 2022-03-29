@@ -1,0 +1,1461 @@
+
+invoking endpoint: https://sandbox-quickbooks.api.intuit.com/v3/company/4620816365219278430/query?query=select * from item
+
+{
+  "QueryResponse": {
+    "Item": [
+      {
+        "Name": "Hours",
+        "Active": true,
+        "FullyQualifiedName": "Hours",
+        "Taxable": false,
+        "SalesTaxIncluded": false,
+        "UnitPrice": 0,
+        "Type": "Service",
+        "IncomeAccountRef": {
+          "value": "121",
+          "name": "Services"
+        },
+        "PurchaseTaxIncluded": false,
+        "PurchaseCost": 0,
+        "TrackQtyOnHand": false,
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "29",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2022-03-20T04:57:34-07:00",
+          "LastUpdatedTime": "2022-03-20T04:57:34-07:00"
+        }
+      },
+      {
+        "Name": "Salary Advance",
+        "Active": true,
+        "FullyQualifiedName": "Salary Advance",
+        "Taxable": false,
+        "SalesTaxIncluded": false,
+        "UnitPrice": 0,
+        "Type": "Service",
+        "IncomeAccountRef": {
+          "value": "133",
+          "name": "Bank"
+        },
+        "PurchaseTaxIncluded": false,
+        "PurchaseCost": 0,
+        "TrackQtyOnHand": false,
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "30",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2022-03-20T06:55:29-07:00",
+          "LastUpdatedTime": "2022-03-20T06:55:29-07:00"
+        }
+      },
+      {
+        "Name": "Services",
+        "Active": true,
+        "FullyQualifiedName": "Services",
+        "Taxable": false,
+        "SalesTaxIncluded": false,
+        "UnitPrice": 0,
+        "Type": "Service",
+        "IncomeAccountRef": {
+          "value": "121",
+          "name": "Services"
+        },
+        "PurchaseTaxIncluded": false,
+        "PurchaseCost": 0,
+        "TrackQtyOnHand": false,
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "28",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2022-03-20T04:57:34-07:00",
+          "LastUpdatedTime": "2022-03-20T04:57:34-07:00"
+        }
+      },
+      {
+        "Name": "Tip",
+        "Active": true,
+        "FullyQualifiedName": "Tip",
+        "Taxable": false,
+        "SalesTaxIncluded": false,
+        "UnitPrice": 0,
+        "Type": "Service",
+        "IncomeAccountRef": {
+          "value": "121",
+          "name": "Services"
+        },
+        "PurchaseTaxIncluded": false,
+        "PurchaseCost": 0,
+        "TrackQtyOnHand": false,
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "31",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2022-03-20T06:55:41-07:00",
+          "LastUpdatedTime": "2022-03-20T06:55:41-07:00"
+        }
+      }
+    ],
+    "startPosition": 1,
+    "maxResults": 4
+  },
+  "time": "2022-03-27T01:28:06.622-07:00"
+}
+{
+  QueryResponse: {
+    Item: [ [Object], [Object], [Object], [Object] ],
+    startPosition: 1,
+    maxResults: 4
+  },
+  time: '2022-03-27T01:28:06.622-07:00'
+}
+
+
+
+invoking endpoint: https://sandbox-quickbooks.api.intuit.com/v3/company/4620816365219278430/query?query=select * from taxCode
+
+{
+  "QueryResponse": {
+    "TaxCode": [
+      {
+        "Name": "Exempt",
+        "Description": "Tax-exempt",
+        "Active": true,
+        "Taxable": true,
+        "TaxGroup": true,
+        "SalesTaxRateList": {
+          "TaxRateDetail": [
+            {
+              "TaxRateRef": {
+                "value": "16",
+                "name": "GST ES"
+              },
+              "TaxTypeApplicable": "TaxOnAmount",
+              "TaxOrder": 0
+            }
+          ]
+        },
+        "PurchaseTaxRateList": {
+          "TaxRateDetail": [
+            {
+              "TaxRateRef": {
+                "value": "15",
+                "name": "GST EP"
+              },
+              "TaxTypeApplicable": "TaxOnAmount",
+              "TaxOrder": 0
+            }
+          ]
+        },
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "7",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2022-03-20T04:58:02-07:00",
+          "LastUpdatedTime": "2022-03-20T04:58:02-07:00"
+        }
+      },
+      {
+        "Name": "GST/HST Adjustment",
+        "Description": "Tax adjustment",
+        "Active": true,
+        "Taxable": true,
+        "TaxGroup": true,
+        "SalesTaxRateList": {
+          "TaxRateDetail": []
+        },
+        "PurchaseTaxRateList": {
+          "TaxRateDetail": []
+        },
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "9",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2022-03-20T04:58:02-07:00",
+          "LastUpdatedTime": "2022-03-20T04:58:02-07:00"
+        }
+      },
+      {
+        "Name": "HST ON",
+        "Description": "Harmonized federal and provincial tax (Ontario)",
+        "Active": false,
+        "Taxable": true,
+        "TaxGroup": true,
+        "SalesTaxRateList": {
+          "TaxRateDetail": [
+            {
+              "TaxRateRef": {
+                "value": "24",
+                "name": "HST ON"
+              },
+              "TaxTypeApplicable": "TaxOnAmount",
+              "TaxOrder": 0
+            }
+          ]
+        },
+        "PurchaseTaxRateList": {
+          "TaxRateDetail": [
+            {
+              "TaxRateRef": {
+                "value": "23",
+                "name": "HST (ITC) ON"
+              },
+              "TaxTypeApplicable": "TaxOnAmount",
+              "TaxOrder": 0
+            }
+          ]
+        },
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "10",
+        "SyncToken": "1",
+        "MetaData": {
+          "CreateTime": "2022-03-20T04:58:02-07:00",
+          "LastUpdatedTime": "2022-03-20T06:51:59-07:00"
+        }
+      },
+      {
+        "Name": "Out of Scope",
+        "Description": "Out of scope",
+        "Active": true,
+        "Taxable": true,
+        "TaxGroup": true,
+        "SalesTaxRateList": {
+          "TaxRateDetail": [
+            {
+              "TaxRateRef": {
+                "value": "26",
+                "name": "NOTAXS"
+              },
+              "TaxTypeApplicable": "TaxOnAmount",
+              "TaxOrder": 0
+            }
+          ]
+        },
+        "PurchaseTaxRateList": {
+          "TaxRateDetail": [
+            {
+              "TaxRateRef": {
+                "value": "25",
+                "name": "NOTAXP"
+              },
+              "TaxTypeApplicable": "TaxOnAmount",
+              "TaxOrder": 0
+            }
+          ]
+        },
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "8",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2022-03-20T04:58:02-07:00",
+          "LastUpdatedTime": "2022-03-20T04:58:02-07:00"
+        }
+      },
+      {
+        "Name": "Tax 7%",
+        "Description": "-",
+        "Active": true,
+        "Taxable": true,
+        "TaxGroup": true,
+        "SalesTaxRateList": {
+          "TaxRateDetail": [
+            {
+              "TaxRateRef": {
+                "value": "29",
+                "name": "Tax 7% (Sales)"
+              },
+              "TaxTypeApplicable": "TaxOnAmount",
+              "TaxOrder": 0
+            }
+          ]
+        },
+        "PurchaseTaxRateList": {
+          "TaxRateDetail": []
+        },
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "11",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2022-03-20T06:51:52-07:00",
+          "LastUpdatedTime": "2022-03-20T06:51:52-07:00"
+        }
+      },
+      {
+        "Name": "Zero-rated",
+        "Description": "Zero-rated",
+        "Active": false,
+        "Taxable": true,
+        "TaxGroup": true,
+        "SalesTaxRateList": {
+          "TaxRateDetail": [
+            {
+              "TaxRateRef": {
+                "value": "14",
+                "name": "GST/HST ZR"
+              },
+              "TaxTypeApplicable": "TaxOnAmount",
+              "TaxOrder": 0
+            }
+          ]
+        },
+        "PurchaseTaxRateList": {
+          "TaxRateDetail": [
+            {
+              "TaxRateRef": {
+                "value": "13",
+                "name": "GST/HST (ITC) ZR"
+              },
+              "TaxTypeApplicable": "TaxOnAmount",
+              "TaxOrder": 0
+            }
+          ]
+        },
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "6",
+        "SyncToken": "1",
+        "MetaData": {
+          "CreateTime": "2022-03-20T04:58:02-07:00",
+          "LastUpdatedTime": "2022-03-20T06:52:03-07:00"
+        }
+      }
+    ],
+    "startPosition": 1,
+    "maxResults": 6,
+    "totalCount": 6
+  },
+  "time": "2022-03-27T01:28:06.628-07:00"
+}
+{
+  QueryResponse: {
+    TaxCode: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+    startPosition: 1,
+    maxResults: 6,
+    totalCount: 6
+  },
+  time: '2022-03-27T01:28:06.628-07:00'
+}
+{
+  response: {
+    debugId: 3,
+    headers: {
+      date: 'Sun, 27 Mar 2022 08:28:06 GMT',
+      'content-type': 'application/json',
+      'content-length': '272',
+      connection: 'close',
+      intuit_tid: '1-62402016-31f897d22322a1be20bd866b',
+      'x-spanid': '734a4a90-62f5-434c-a19a-3f03ff8498bb',
+      'x-amzn-trace-id': 'Root=1-62402016-31f897d22322a1be20bd866b',
+      'x-content-type-options': 'nosniff',
+      'x-envoy-upstream-service-time': '112',
+      'strict-transport-security': 'max-age=31536000',
+      server: 'envoy'
+    },
+    statusCode: 400,
+    body: { Fault: [Object], time: '2022-03-27T01:28:06.644-07:00' }
+  }
+}
+invoking endpoint: https://sandbox-quickbooks.api.intuit.com/v3/company/4620816365219278430/invoice
+{
+  CustomerRef: { value: '71' },
+  Line: [
+    {
+      Amount: '100.00',
+      DetailType: 'SalesItemLineDetail',
+      SalesItemLineDetail: [Object]
+    }
+  ],
+  DueDate: '1-31-2020',
+  TxnDate: '1-25-2020'
+}
+{
+  "Fault": {
+    "Error": [
+      {
+        "Message": "A business validation error has occurred while processing your request",
+        "Detail": "Business Validation Error: Please enter at least one line item.",
+        "code": "6000",
+        "element": ""
+      }
+    ],
+    "type": "ValidationFault"
+  },
+  "time": "2022-03-27T01:28:06.644-07:00"
+}
+{
+  Fault: { Error: [ [Object] ], type: 'ValidationFault' },
+  time: '2022-03-27T01:28:06.644-07:00'
+}
+
+
+invoice schema
+
+{
+    AllowIPNPayment: false,
+    AllowOnlinePayment: false,
+    AllowOnlineCreditCardPayment: false,
+    AllowOnlineACHPayment: false,
+    domain: 'QBO',
+    sparse: false,
+    Id: '182',
+    SyncToken: '0',
+    MetaData: {
+      CreateTime: '2022-03-27T01:44:31-07:00',
+      LastUpdatedTime: '2022-03-27T01:44:31-07:00'
+    },
+    CustomField: [ { DefinitionId: '1', Type: 'StringType' } ],
+    TxnDate: '2022-03-27',
+    CurrencyRef: { value: 'THB', name: 'Thai Baht' },
+    LinkedTxn: [],
+    Line: [
+      {
+        Id: '1',
+        LineNum: 1,
+        Amount: 100,
+        DetailType: 'SalesItemLineDetail',
+        SalesItemLineDetail: [Object]
+      },
+      {
+        Amount: 100,
+        DetailType: 'SubTotalLineDetail',
+        SubTotalLineDetail: {}
+      }
+    ],
+    TxnTaxDetail: { TotalTax: 0, TaxLine: [ [Object] ] },
+    CustomerRef: { value: '71', name: '12121212121' },
+    DueDate: '2022-03-27',
+    GlobalTaxCalculation: 'TaxExcluded',
+    TotalAmt: 100,
+    PrintStatus: 'NeedToPrint',
+    EmailStatus: 'NotSet',
+    Balance: 100
+  }
+
+  Payment schema
+  {
+    CustomerRef: { value: '71', name: '12121212121' },
+    DepositToAccountRef: { value: '97' },
+    TotalAmt: 100,
+    UnappliedAmt: 0,
+    ProcessPayment: false,
+    domain: 'QBO',
+    sparse: false,
+    Id: '183',
+    SyncToken: '0',
+    MetaData: {
+      CreateTime: '2022-03-27T02:04:21-07:00',
+      LastUpdatedTime: '2022-03-27T02:04:21-07:00'
+    },
+    TxnDate: '2022-03-27',
+    CurrencyRef: { value: 'THB', name: 'Thai Baht' },
+    Line: [ { Amount: 100, LinkedTxn: [Array], LineEx: [Object] } ]
+  }
+
+
+  Accounts 
+
+{
+  "Name": "Advertising",
+  "SubAccount": false,
+  "FullyQualifiedName": "Advertising",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "AdvertisingPromotional",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "100",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Bank",
+  "SubAccount": false,
+  "FullyQualifiedName": "Bank",
+  "Active": true,
+  "Classification": "Asset",
+  "AccountType": "Bank",
+  "AccountSubType": "Savings",
+  "CurrentBalance": -100,
+  "CurrentBalanceWithSubAccounts": -100,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "133",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:53:51-07:00",
+    "LastUpdatedTime": "2022-03-27T01:44:31-07:00"
+  }
+},
+{
+  "Name": "Bank charges",
+  "SubAccount": false,
+  "FullyQualifiedName": "Bank charges",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "BankCharges",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "101",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Billable Expense Income",
+  "SubAccount": false,
+  "FullyQualifiedName": "Billable Expense Income",
+  "Active": true,
+  "Classification": "Revenue",
+  "AccountType": "Income",
+  "AccountSubType": "ServiceFeeIncome",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "127",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:52:19-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Commissions and fees",
+  "SubAccount": false,
+  "FullyQualifiedName": "Commissions and fees",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "OtherMiscellaneousServiceCost",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "102",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Cost of Goods Sold",
+  "SubAccount": false,
+  "FullyQualifiedName": "Cost of Goods Sold",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Cost of Goods Sold",
+  "AccountSubType": "SuppliesMaterialsCogs",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "136",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:55:08-07:00",
+    "LastUpdatedTime": "2022-03-20T06:55:08-07:00"
+  }
+},
+{
+  "Name": "Dues and Subscriptions",
+  "SubAccount": false,
+  "FullyQualifiedName": "Dues and Subscriptions",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "OfficeGeneralAdministrativeExpenses",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "103",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Fees Billed",
+  "SubAccount": false,
+  "FullyQualifiedName": "Fees Billed",
+  "Active": true,
+  "Classification": "Revenue",
+  "AccountType": "Income",
+  "AccountSubType": "ServiceFeeIncome",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "98",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "GST/HST Payable",
+  "SubAccount": false,
+  "FullyQualifiedName": "GST/HST Payable",
+  "Active": true,
+  "Classification": "Liability",
+  "AccountType": "Other Current Liability",
+  "AccountSubType": "GlobalTaxPayable",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "123",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:58:02-07:00",
+    "LastUpdatedTime": "2022-03-27T01:44:31-07:00"
+  }
+},
+{
+  "Name": "GST/HST Suspense",
+  "SubAccount": false,
+  "FullyQualifiedName": "GST/HST Suspense",
+  "Active": true,
+  "Classification": "Liability",
+  "AccountType": "Other Current Liability",
+  "AccountSubType": "GlobalTaxSuspense",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "124",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:58:02-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Insurance",
+  "SubAccount": false,
+  "FullyQualifiedName": "Insurance",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "Insurance",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "104",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Interest earned",
+  "SubAccount": false,
+  "FullyQualifiedName": "Interest earned",
+  "Active": true,
+  "Classification": "Revenue",
+  "AccountType": "Other Income",
+  "AccountSubType": "InterestEarned",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "117",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:34-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Inventory Asset",
+  "SubAccount": false,
+  "FullyQualifiedName": "Inventory Asset",
+  "Active": true,
+  "Classification": "Asset",
+  "AccountType": "Other Current Asset",
+  "AccountSubType": "Inventory",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "137",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:55:08-07:00",
+    "LastUpdatedTime": "2022-03-20T06:55:08-07:00"
+  }
+},
+{
+  "Name": "Legal and professional fees",
+  "SubAccount": false,
+  "FullyQualifiedName": "Legal and professional fees",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "LegalProfessionalFees",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "105",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Meals and entertainment",
+  "SubAccount": false,
+  "FullyQualifiedName": "Meals and entertainment",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "EntertainmentMeals",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "106",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Miscellaneous",
+  "SubAccount": false,
+  "FullyQualifiedName": "Miscellaneous",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Other Expense",
+  "AccountSubType": "OtherMiscellaneousExpense",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "119",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:34-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Office expenses",
+  "SubAccount": false,
+  "FullyQualifiedName": "Office expenses",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "OfficeGeneralAdministrativeExpenses",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "107",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Opening Balance Equity",
+  "SubAccount": false,
+  "FullyQualifiedName": "Opening Balance Equity",
+  "Active": true,
+  "Classification": "Equity",
+  "AccountType": "Equity",
+  "AccountSubType": "OpeningBalanceEquity",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "132",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:53:51-07:00",
+    "LastUpdatedTime": "2022-03-20T06:53:51-07:00"
+  }
+},
+{
+  "Name": "Other Portfolio Income",
+  "SubAccount": false,
+  "FullyQualifiedName": "Other Portfolio Income",
+  "Active": true,
+  "Classification": "Revenue",
+  "AccountType": "Other Income",
+  "AccountSubType": "OtherMiscellaneousIncome",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "118",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:34-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Penalties and settlements",
+  "SubAccount": false,
+  "FullyQualifiedName": "Penalties and settlements",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Other Expense",
+  "AccountSubType": "PenaltiesSettlements",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "120",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:34-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Prepaid expenses",
+  "SubAccount": false,
+  "FullyQualifiedName": "Prepaid expenses",
+  "Active": true,
+  "Classification": "Asset",
+  "AccountType": "Other Current Asset",
+  "AccountSubType": "PrepaidExpenses",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "96",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Promotional",
+  "SubAccount": false,
+  "FullyQualifiedName": "Promotional",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "AdvertisingPromotional",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "108",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Purchases",
+  "SubAccount": false,
+  "FullyQualifiedName": "Purchases",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "SuppliesMaterials",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "134",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:55:08-07:00",
+    "LastUpdatedTime": "2022-03-20T06:55:08-07:00"
+  }
+},
+{
+  "Name": "Refunds-Allowances",
+  "SubAccount": false,
+  "FullyQualifiedName": "Refunds-Allowances",
+  "Active": true,
+  "Classification": "Revenue",
+  "AccountType": "Income",
+  "AccountSubType": "DiscountsRefundsGiven",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "99",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Rent or lease payments",
+  "SubAccount": false,
+  "FullyQualifiedName": "Rent or lease payments",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "RentOrLeaseOfBuildings",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "109",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Repair and maintenance",
+  "SubAccount": false,
+  "FullyQualifiedName": "Repair and maintenance",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "OfficeGeneralAdministrativeExpenses",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "110",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Retained Earnings",
+  "SubAccount": false,
+  "FullyQualifiedName": "Retained Earnings",
+  "Active": true,
+  "Classification": "Equity",
+  "AccountType": "Equity",
+  "AccountSubType": "RetainedEarnings",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "122",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:34-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Sales of Product Income",
+  "SubAccount": false,
+  "FullyQualifiedName": "Sales of Product Income",
+  "Active": true,
+  "Classification": "Revenue",
+  "AccountType": "Income",
+  "AccountSubType": "SalesOfProductIncome",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "135",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:55:08-07:00",
+    "LastUpdatedTime": "2022-03-20T06:55:08-07:00"
+  }
+},
+{
+  "Name": "Services",
+  "SubAccount": false,
+  "FullyQualifiedName": "Services",
+  "Active": true,
+  "Classification": "Revenue",
+  "AccountType": "Income",
+  "AccountSubType": "ServiceFeeIncome",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "121",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:34-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Stationery and printing",
+  "SubAccount": false,
+  "FullyQualifiedName": "Stationery and printing",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "OfficeGeneralAdministrativeExpenses",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "111",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Supplies",
+  "SubAccount": false,
+  "FullyQualifiedName": "Supplies",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "SuppliesMaterials",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "112",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Tax 7% Payable",
+  "SubAccount": false,
+  "FullyQualifiedName": "Tax 7% Payable",
+  "Active": true,
+  "Classification": "Liability",
+  "AccountType": "Other Current Liability",
+  "AccountSubType": "GlobalTaxPayable",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "125",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:51:52-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Tax 7% Suspense",
+  "SubAccount": false,
+  "FullyQualifiedName": "Tax 7% Suspense",
+  "Active": true,
+  "Classification": "Liability",
+  "AccountType": "Other Current Liability",
+  "AccountSubType": "GlobalTaxSuspense",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "126",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:51:52-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Taxes and Licenses",
+  "SubAccount": false,
+  "FullyQualifiedName": "Taxes and Licenses",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "TaxesPaid",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "113",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Travel",
+  "SubAccount": false,
+  "FullyQualifiedName": "Travel",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "Travel",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "114",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Travel meals",
+  "SubAccount": false,
+  "FullyQualifiedName": "Travel meals",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "TravelMeals",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "115",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Unapplied Cash Payment Income",
+  "SubAccount": false,
+  "FullyQualifiedName": "Unapplied Cash Payment Income",
+  "Active": true,
+  "Classification": "Revenue",
+  "AccountType": "Income",
+  "AccountSubType": "UnappliedCashPaymentIncome",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "139",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-27T01:44:31-07:00",
+    "LastUpdatedTime": "2022-03-27T01:44:31-07:00"
+  }
+},
+{
+  "Name": "Uncategorized Asset",
+  "SubAccount": false,
+  "FullyQualifiedName": "Uncategorized Asset",
+  "Active": true,
+  "Classification": "Asset",
+  "AccountType": "Other Current Asset",
+  "AccountSubType": "OtherCurrentAssets",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "129",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:52:20-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Uncategorized Expense",
+  "SubAccount": false,
+  "FullyQualifiedName": "Uncategorized Expense",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "OtherMiscellaneousServiceCost",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "128",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:52:20-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Uncategorized Income",
+  "SubAccount": false,
+  "FullyQualifiedName": "Uncategorized Income",
+  "Active": true,
+  "Classification": "Revenue",
+  "AccountType": "Income",
+  "AccountSubType": "ServiceFeeIncome",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "131",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:52:20-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Uncategorized Income",
+  "SubAccount": false,
+  "FullyQualifiedName": "Uncategorized Income",
+  "Active": true,
+  "Classification": "Revenue",
+  "AccountType": "Income",
+  "AccountSubType": "ServiceFeeIncome",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "130",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T06:52:20-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+},
+{
+  "Name": "Undeposited Funds",
+  "SubAccount": false,
+  "FullyQualifiedName": "Undeposited Funds",
+  "Active": true,
+  "Classification": "Asset",
+  "AccountType": "Other Current Asset",
+  "AccountSubType": "UndepositedFunds",
+  "CurrentBalance": 100,
+  "CurrentBalanceWithSubAccounts": 100,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "97",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-27T02:04:21-07:00"
+  }
+},
+{
+  "Name": "Utilities",
+  "SubAccount": false,
+  "FullyQualifiedName": "Utilities",
+  "Active": true,
+  "Classification": "Expense",
+  "AccountType": "Expense",
+  "AccountSubType": "Utilities",
+  "CurrentBalance": 0,
+  "CurrentBalanceWithSubAccounts": 0,
+  "CurrencyRef": {
+    "value": "THB",
+    "name": "Thai Baht"
+  },
+  "domain": "QBO",
+  "sparse": false,
+  "Id": "116",
+  "SyncToken": "0",
+  "MetaData": {
+    "CreateTime": "2022-03-20T04:57:33-07:00",
+    "LastUpdatedTime": "2022-03-20T06:52:47-07:00"
+  }
+}
+],
+"startPosition": 1,
+"maxResults": 44
+},
+"time": "2022-03-27T02:29:02.372-07:00"
+}

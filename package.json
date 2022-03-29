@@ -1,0 +1,20 @@
+{
+  "name": "quickbooks-script-ewa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "nodemon":"nodemon export-data.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "intuit-oauth": "^4.0.0",
+    "node-quickbooks": "^2.0.39",
+    "nodemon": "^2.0.15",
+    "open": "^8.4.0",
+    "xlsx": "^0.18.4"
+  }
+}
