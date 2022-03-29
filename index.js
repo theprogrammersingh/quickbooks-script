@@ -59,6 +59,7 @@ const createCustomer = (displayName) => {
     console.log("Creating Customer", displayName);
     qbo.createCustomer({ DisplayName: displayName }, function (err, customer) {
       if (err) {
+        console.log(err);
         reject(err);
       }
       if (!fs.existsSync("./data/customers-res.json")) {
