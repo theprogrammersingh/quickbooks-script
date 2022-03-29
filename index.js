@@ -252,8 +252,8 @@ const runScript = async () => {
   customers = JSON.parse(customers);
   if(Array.isArray(customers)){
     customers.forEach(async (customer, i) => {
-      await sleep(1000);
-      await createCustomer(customer.name);
+      await sleep(1000);console.log(customer);
+      await createCustomer(customer['DisplayName']);
       if (i%3000 == 0){
         await refreshToken();
       }
