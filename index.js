@@ -246,7 +246,7 @@ const refreshToken = async () => {
 };
 
 const runScript = async () => {
-  const customers = fs.readFileSync("./data/customers.json");
+  let customers = fs.readFileSync("./data/customers.json");
   customers = JSON.parse(customers);
   if(Array.isArray(customers)){
     customers.forEach(async (customer, i) => {
