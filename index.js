@@ -65,10 +65,15 @@ const createCustomer = (displayName) => {
       if (!fs.existsSync("./data/customers-res.json")) {
         fs.writeFileSync("./data/customers-res.json", "[]");
       }
-      const customersRes = JSON.parse(fs.readFileSync("./data/customers-res.json"));
+      const customersRes = JSON.parse(
+        fs.readFileSync("./data/customers-res.json")
+      );
       customersRes.push(customer);
-      fs.writeFileSync("./data/customers-res.json", JSON.stringify(customersRes));
-      console.log('Created Customer', displayName);
+      fs.writeFileSync(
+        "./data/customers-res.json",
+        JSON.stringify(customersRes)
+      );
+      console.log("Created Customer", displayName);
       resolve(customer);
     });
   });
@@ -252,19 +257,16 @@ const runScript = async () => {
   let customers = fs.readFileSync("./data/customers.json");
   customers = JSON.parse(customers);
   if (Array.isArray(customers)) {
+    setInterval(refreshToken, 3600 * 100);
     for (let i = 0; i < customers.length; i++) {
       try {
         await sleep(1000);
-        await createCustomer(customers[i]['DisplayName']);
-        if (i % 3000 == 0) {
-          await refreshToken();
-        }
+        await createCustomer(customers[i]["DisplayName"]);
       } catch (err) {
         console.log(err);
       }
     }
   }
-
 };
 
 run();
