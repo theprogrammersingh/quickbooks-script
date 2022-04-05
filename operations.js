@@ -1,6 +1,5 @@
 const fs = require("fs");
 const mongoose = require("mongoose");
-const { start } = require("repl");
 
 const start = async () => {
   const mongooseHelper = require("./mongoose-helper.js");
