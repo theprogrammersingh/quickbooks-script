@@ -8,6 +8,11 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 const bodyParser = require("body-parser");
+const fs = require("fs");
+const mongoose = require("mongoose");
+
+const mongooseHelper = require("./mongoose-helper.js");
+
 
 const oauthClient = new OAuthClient({
   clientId: "ABL9octUQz2zkIci1hZGOWRkf1HUmaBuyGWuQqIE6FSJX74MeE",
@@ -15,6 +20,16 @@ const oauthClient = new OAuthClient({
   environment: "sandbox",
   redirectUri: "http://quickbooks-test.ewa-services.com:3333/callback",
 });
+
+try{
+  await mongoose.connect(
+    `mongodb+srv://ewaservices:${encodeURIComponent(
+      "ewaservices2022!@#"
+    )}@cluster0.zerhe.mongodb.net/quickbook-res?retryWrites=true&w=majority`
+  );
+} catch(err) {  
+  console.err(err);
+}
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -53,26 +68,36 @@ const readSheet = () => {
   });
 };
 
+const customerExist = (displayName) => {
+  try {
+    const tryFindUser = await mongooseHelper.findCustomerByDisplayName(displayName);
+    return tryFindUser;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 // ******************************************** define QBO functions *****************************************************
 const createCustomer = (displayName) => {
   const promise = new Promise((reject, resolve) => {
     console.log("Creating Customer", displayName);
+    if (!!customerExist) {
+      reject("Customer already exist");
+    }
     qbo.createCustomer({ DisplayName: displayName }, function (err, customer) {
       if (err) {
         console.log(err);
         reject(err);
       }
-      if (!fs.existsSync("./data/customers-res.json")) {
-        fs.writeFileSync("./data/customers-res.json", "[]");
+      try {
+        await mongooseHelper.Customer({
+          displayName: customer['DisplayName'],
+          id: customer['Id'],
+        });
+      } catch (err) {
+        console.log(err);
+        reject(err);
       }
-      const customersRes = JSON.parse(
-        fs.readFileSync("./data/customers-res.json")
-      );
-      customersRes.push(customer);
-      fs.writeFileSync(
-        "./data/customers-res.json",
-        JSON.stringify(customersRes)
-      );
       console.log("Created Customer", displayName);
       resolve(customer);
     });

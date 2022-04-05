@@ -1,23 +1,20 @@
 const fs = require("fs");
+const mongoose = require("mongoose");
 
-const existInAddedCustomers = (displayName) => {
-  console.log(displayName);
-  return (
-    addedCustomers.findIndex((cust) => cust.DisplayName == displayName) >= 0
-  );
-};
+const mongooseHelper = require("./mongoose-helper.js");
 
-const customers = JSON.parse(fs.readFileSync("./data/customers.json"));
-
-const addedCustomers = JSON.parse(
-  fs.readFileSync("./data/customers-res-filtered.json")
+await mongoose.connect(
+  `mongodb+srv://ewaservices:${encodeURIComponent(
+    "ewaservices2022!@#"
+  )}@cluster0.zerhe.mongodb.net/quickbook-res?retryWrites=true&w=majority`
 );
 
-const filteredCustomers = customers.filter(
-  (cust) => !existInAddedCustomers(cust.DisplayName)
-);
+const savedData = JSON.parse(fs.readFileSync("./data/customers-res.json"));
 
-fs.writeFileSync(
-  "./data/customers-filtered.json",
-  JSON.stringify(filteredCustomers)
-);
+for (let i = 0; i < savedData.length; i++) {
+  const customer = new mongooseHelper.Customer({
+    displayName: savedData[i]["DisplayName"],
+    id: savedData[i]["Id"],
+  });
+  await customer.save();
+}

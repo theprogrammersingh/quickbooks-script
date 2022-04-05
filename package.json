@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "nodemon":"nodemon export-data.js",
+    "nodemon": "nodemon export-data.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.17.3",
     "intuit-oauth": "^4.0.0",
+    "mongoose": "^6.2.10",
     "node-quickbooks": "^2.0.39",
     "nodemon": "^2.0.15",
     "open": "^8.4.0",
