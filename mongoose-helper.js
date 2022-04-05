@@ -1,11 +1,16 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-export const Customer = mongoose.model("Customer", {
+const Customer = mongoose.model("Customer", {
   displayName: String,
   id: String,
 });
 
-export const findCustomerByDisplayName = async (displayName) => {
+const findCustomerByDisplayName = async (displayName) => {
   const customer = await Customer.findOne({ displayName });
   return customer;
+};
+
+export default mongooseHelper = {
+  Customer,
+  findCustomerByDisplayName,
 };

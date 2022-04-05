@@ -1,9 +1,8 @@
-const fs = require("fs");
-const mongoose = require("mongoose");
+import fs from "fs";
+import mongoose from "mongoose";
+import mongooseHelper from "mongoose-helper.js";
 
 const start = async () => {
-  const mongooseHelper = require("./mongoose-helper.js");
-
   await mongoose.connect(
     `mongodb+srv://ewaservices:${encodeURIComponent(
       "ewaservices2022!@#"
