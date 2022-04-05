@@ -1,18 +1,15 @@
-const reader = require("xlsx");
-const open = require("open");
+import * as xlsx from "xlsx";
 
-const OAuthClient = require("intuit-oauth");
-const QuickBooks = require("node-quickbooks");
+import OAuthClient from "intuit-oauth";
+import QuickBooks from "node-quickbooks";
 
-const express = require("express");
+import express from "express";
 const app = express();
-const fs = require("fs");
-const bodyParser = require("body-parser");
-const fs = require("fs");
-const mongoose = require("mongoose");
+import bodyParser from "body-parser";
+import fs from "fs";
+import mongoose from "mongoose";
 
-const mongooseHelper = require("./mongoose-helper.js");
-
+import mongooseHelper from "./mongoose-helper.js";
 
 const oauthClient = new OAuthClient({
   clientId: "ABL9octUQz2zkIci1hZGOWRkf1HUmaBuyGWuQqIE6FSJX74MeE",
@@ -21,20 +18,19 @@ const oauthClient = new OAuthClient({
   redirectUri: "http://quickbooks-test.ewa-services.com:3333/callback",
 });
 
-try{
-  await mongoose.connect(
+mongoose
+  .connect(
     `mongodb+srv://ewaservices:${encodeURIComponent(
       "ewaservices2022!@#"
     )}@cluster0.zerhe.mongodb.net/quickbook-res?retryWrites=true&w=majority`
-  );
-} catch(err) {  
-  console.err(err);
-}
+  )
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => console.log(err));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // ******************************************* Define variables ***********************************************************
 let oauth2_token_json = null;
@@ -53,14 +49,14 @@ let receivedPayments = [];
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const readSheet = () => {
-  const file = reader.readFile("./test.xlsx");
+  const file = xlxs.readFile("./test.xlsx");
 
   let sheetData = [];
   let customers = [];
   const sheets = file.SheetNames;
 
   for (let i = 0; i < sheets.length; i++) {
-    const temp = reader.utils.sheet_to_json(file.Sheets[file.SheetNames[i]]);
+    const temp = utils.sheet_to_json(file.Sheets[file.SheetNames[i]]);
     sheetData.push(temp);
   }
   sheetData[0].forEach((row) => {
@@ -68,14 +64,16 @@ const readSheet = () => {
   });
 };
 
-const customerExist = (displayName) => {
+const customerExist = async (displayName) => {
   try {
-    const tryFindUser = await mongooseHelper.findCustomerByDisplayName(displayName);
-    return tryFindUser;
+    const findUser = await mongooseHelper.findCustomerByDisplayName(
+      displayName
+    );
+    return findUser;
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 // ******************************************** define QBO functions *****************************************************
 const createCustomer = (displayName) => {
@@ -84,15 +82,15 @@ const createCustomer = (displayName) => {
     if (!!customerExist) {
       reject("Customer already exist");
     }
-    qbo.createCustomer({ DisplayName: displayName }, function (err, customer) {
+    qbo.createCustomer({ DisplayName: displayName }, async (err, customer) => {
       if (err) {
         console.log(err);
         reject(err);
       }
       try {
         await mongooseHelper.Customer({
-          displayName: customer['DisplayName'],
-          id: customer['Id'],
+          displayName: customer["DisplayName"],
+          id: customer["Id"],
         });
       } catch (err) {
         console.log(err);
@@ -397,7 +395,7 @@ app.get("/getCompanyInfo", function (req, res) {
 app.get("/disconnect", function (req, res) {
   console.log("The disconnect called ");
   const authUri = oauthClient.authorizeUri({
-    scope: [OAuthClient.scopes.OpenId, OAuthClient.scopes.Email],
+    scope: [scopes.OpenId, scopes.Email],
     state: "intuit-test",
   });
   res.redirect(authUri);
@@ -406,14 +404,14 @@ app.get("/disconnect", function (req, res) {
 app.get("/run", function (req, res) {
   // Reading our test file
 
-  const file = reader.readFile("./test.xlsx");
+  const file = xlxs.readFile("./test.xlsx");
 
   let data = [];
   let sheetData = [];
   const sheets = file.SheetNames;
 
   for (let i = 0; i < sheets.length; i++) {
-    const temp = reader.utils.sheet_to_json(file.Sheets[file.SheetNames[i]]);
+    const temp = utils.sheet_to_json(file.Sheets[file.SheetNames[i]]);
     sheetData.push(temp);
   }
   sheetData[0].forEach((row) => {
