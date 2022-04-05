@@ -10,7 +10,9 @@ const findCustomerByDisplayName = async (displayName) => {
   return customer;
 };
 
-export default mongooseHelper = {
+const mongooseHelper = {
   Customer,
   findCustomerByDisplayName,
 };
+
+export default mongooseHelper;
