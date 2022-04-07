@@ -79,9 +79,6 @@ const customerExist = async (displayName) => {
 const createCustomer = (displayName) => {
   const promise = new Promise((reject, resolve) => {
     console.log("Creating Customer", displayName);
-    if (!!customerExist) {
-      reject("Customer already exist");
-    }
     qbo.createCustomer({ DisplayName: displayName }, async (err, customer) => {
       if (err) {
         console.log(err);
@@ -283,6 +280,9 @@ const runScript = async () => {
     setInterval(refreshToken, 3600 * 100);
     for (let i = 0; i < customers.length; i++) {
       try {
+        if (!!(await customerExist())) {
+          reject("Customer already exist");
+        }
         await sleep(1000);
         await createCustomer(customers[i]["DisplayName"]);
       } catch (err) {
