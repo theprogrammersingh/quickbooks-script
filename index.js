@@ -280,7 +280,7 @@ const runScript = async () => {
     setInterval(refreshToken, 3600 * 100);
     for (let i = 0; i < customers.length; i++) {
       try {
-        if (!!(await customerExist())) {
+        if (!!(await customerExist(customers[i]['DisplayName']))) {
           throw("Customer already exist");
         }
         await sleep(1000);

@@ -9,13 +9,14 @@ const start = async () => {
     )}@cluster0.zerhe.mongodb.net/quickbook-res?retryWrites=true&w=majority`
   );
 
-  const customerExist = (displayName) =>
-    mongooseHelper.findCustomerByDisplayName(displayName);
+  const customerExist = (displayName) =>{
+    return mongooseHelper.findCustomerByDisplayName(displayName);
+  }
 
   const savedData = JSON.parse(fs.readFileSync("./data/customers-res.json"));
 
   for (let i = 0; i < savedData.length; i++) {
-    if (!(await customerExist(savedData[i].displayName))) {
+    if (!(await customerExist(savedData[i]['DisplayName']))) {
       const customer = new mongooseHelper.Customer({
         displayName: savedData[i]["DisplayName"],
         id: savedData[i]["Id"],
