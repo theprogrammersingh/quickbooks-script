@@ -100,8 +100,8 @@ const createCustomer = (displayName) => {
   return promise;
 };
 
-const createSAInvoice = (customerID, amount) => {
-  const customer = await mongooseHelper.findCustomerByDisplayName(customerID);
+const createSAInvoice = async (customerID, amount) => {
+  // const customer = await mongooseHelper.findCustomerByDisplayName(customerID);
   const promise = new Promise((reject, resolve) => {
     qbo.createInvoice(
       {
@@ -278,14 +278,16 @@ const runScript = async () => {
   let customers = fs.readFileSync("./data/customers.json");
   customers = JSON.parse(customers);
   let savedCustomers = await mongooseHelper.getAllCustomers();
-  customers = customers.filter(cust => !!cust).filter(cust => savedCustomers.findIndex(c => c.displayName == cust.DisplayName) < 0);
+  customers = customers
+    .filter((cust) => !!cust)
+    .filter(
+      (cust) =>
+        savedCustomers.findIndex((c) => c.displayName == cust.DisplayName) < 0
+    );
   if (Array.isArray(customers)) {
     setInterval(refreshToken, 3600 * 100);
     for (let i = 0; i < customers.length; i++) {
       try {
-        if (!!(await customerExist(customers[i]['DisplayName']))) {
-          throw("Customer already exist");
-        }
         await sleep(1000);
         await createCustomer(customers[i]["DisplayName"]);
       } catch (err) {
