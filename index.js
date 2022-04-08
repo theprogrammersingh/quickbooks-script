@@ -281,7 +281,7 @@ const runScript = async () => {
     for (let i = 0; i < customers.length; i++) {
       try {
         if (!!(await customerExist())) {
-          reject("Customer already exist");
+          throw("Customer already exist");
         }
         await sleep(1000);
         await createCustomer(customers[i]["DisplayName"]);
