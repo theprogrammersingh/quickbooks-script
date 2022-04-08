@@ -15,8 +15,14 @@ const findCustomerByDisplayName = async (displayName) => {
   return customer;
 };
 
+const getAllCustomers = async () => {
+  const customers = await Customer.find();
+  return customers;
+};
+
 const mongooseHelper = {
   Customer,
+  getAllCustomers,
   findCustomerByDisplayName,
 };
 
