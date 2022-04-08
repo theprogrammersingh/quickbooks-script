@@ -122,8 +122,8 @@ const createSAInvoice = (customerID, amount) => {
             },
           },
         ],
-        DueDate: "1-31-2020",
-        TxnDate: "1-25-2020",
+        DueDate: "2020-31-01",
+        TxnDate: "2020-25-01",
       },
       function (err, invoice) {
         if (err) {
@@ -158,8 +158,8 @@ const createFeeInvoice = (customerID, amount) => {
             },
           },
         ],
-        DueDate: "1-31-2020",
-        TxnDate: "1-25-2020",
+        DueDate: "2020-31-01",
+        TxnDate: "2020-25-01",
       },
       function (err, invoice) {
         if (err) {
@@ -180,7 +180,7 @@ const createPayment = (customerId, amount, invoiceId) => {
           value: customerId,
         },
         TotalAmt: amount,
-        TxnDate: "1-25-2020",
+        TxnDate: "2020-25-01",
         Line: [
           {
             Amount: amount,
