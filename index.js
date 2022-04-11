@@ -275,17 +275,17 @@ const refreshToken = async () => {
 };
 
 const runScript = async () => {
-  let customers = fs.readFileSync("./data/customers.json");
+  let customers = fs.readFileSync("./data/customers-to-save.json");
   customers = JSON.parse(customers);
-  let savedCustomers = await mongooseHelper.getAllCustomers();
-  console.log("checking array");
-  customers = customers
-    .filter((cust) => !!cust)
-    .filter(
-      (cust) =>
-        savedCustomers.findIndex((c) => c.displayName == cust.DisplayName) < 0
-    );
-  console.log("array checked");
+  // let savedCustomers = await mongooseHelper.getAllCustomers();
+  // console.log("checking array");
+  // customers = customers
+  //   .filter((cust) => !!cust)
+  //   .filter(
+  //     (cust) =>
+  //       savedCustomers.findIndex((c) => c.displayName == cust.DisplayName) < 0
+  //   );
+  // console.log("array checked");
   if (Array.isArray(customers)) {
     setInterval(refreshToken, 3600 * 100);
     for (let i = 0; i < customers.length; i++) {
