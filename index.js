@@ -15,7 +15,8 @@ const oauthClient = new OAuthClient({
   clientId: "ABL9octUQz2zkIci1hZGOWRkf1HUmaBuyGWuQqIE6FSJX74MeE",
   clientSecret: "2havApRttfP4Fkkw8k0uT3CCtEShx0cpF8PbvHjV",
   environment: "sandbox",
-  redirectUri: "http://quickbooks-test.ewa-services.com:3333/callback",
+  // redirectUri: "http://quickbooks-test.ewa-services.com:3333/callback",
+  redirectUri: "http://localhost:3333/callback",
 });
 
 mongoose
@@ -151,7 +152,7 @@ const createFeeInvoice = (customerID, amount) => {
             SalesItemLineDetail: {
               ItemRef: {
                 name: "Salary Advance",
-                value: "30",
+                value: "31",
               },
               TaxCodeRef: {
                 value: "7",
@@ -238,6 +239,23 @@ const createDeposit = (paymentId, amount) => {
   return promise;
 };
 
+const findAllCustomers = () => {
+  const promise = new Promise((reject, resolve) => {
+    qbo.findCustomers(
+      {
+        fetchAll: true,
+      },
+      function (err, customers) {
+        if (err) {
+          reject(err);
+        }
+        resolve(customers);
+      }
+    );
+  });
+  return promise;
+};
+
 // **************************************** define main functions *******************************************************
 
 const run = () => {
@@ -275,8 +293,11 @@ const refreshToken = async () => {
 };
 
 const runScript = async () => {
-  let customers = fs.readFileSync("./data/customers-to-save.json");
-  customers = JSON.parse(customers);
+  setInterval(refreshToken, 3600 * 100);
+  const allCustomers = await findAllCustomers();
+  console.log(allCustomers);
+  // let customers = fs.readFileSync("./data/customers-to-save.json");
+
   // let savedCustomers = await mongooseHelper.getAllCustomers();
   // console.log("checking array");
   // customers = customers
@@ -286,17 +307,17 @@ const runScript = async () => {
   //       savedCustomers.findIndex((c) => c.displayName == cust.DisplayName) < 0
   //   );
   // console.log("array checked");
-  if (Array.isArray(customers)) {
-    setInterval(refreshToken, 3600 * 100);
-    for (let i = 0; i < customers.length; i++) {
-      try {
-        await sleep(1000);
-        await createCustomer(customers[i]["DisplayName"]);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  }
+  // if (Array.isArray(customers)) {
+  //   setInterval(refreshToken, 3600 * 100);
+  //   for (let i = 0; i < customers.length; i++) {
+  //     try {
+  //       await sleep(1000);
+  //       await createCustomer(customers[i]["DisplayName"]);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  // }
 };
 
 run();
