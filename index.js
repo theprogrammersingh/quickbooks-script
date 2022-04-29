@@ -15,8 +15,8 @@ const oauthClient = new OAuthClient({
   clientId: "ABL9octUQz2zkIci1hZGOWRkf1HUmaBuyGWuQqIE6FSJX74MeE",
   clientSecret: "2havApRttfP4Fkkw8k0uT3CCtEShx0cpF8PbvHjV",
   environment: "sandbox",
-  // redirectUri: "http://quickbooks-test.ewa-services.com:3333/callback",
-  redirectUri: "http://localhost:3333/callback",
+  redirectUri: "http://quickbooks-test.ewa-services.com:3333/callback",
+  // redirectUri: "http://localhost:3333/callback",
 });
 
 mongoose
