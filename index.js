@@ -239,18 +239,17 @@ const createDeposit = (paymentId, amount) => {
   return promise;
 };
 
-const findAllCustomers = () => {
-  const promise = new Promise((reject, resolve) => {
+const findAllCustomers = (offset) => {
+  const promise = new Promise((resolve, reject) => {
     qbo.findCustomers(
       {
         limit: 1000,
-        offset: 0,
+        offset,
       },
       function (err, customers) {
         if (err) {
           reject(err);
         }
-        console.log("----------chal rea---------");
         resolve(customers);
       }
     );
@@ -296,12 +295,26 @@ const refreshToken = async () => {
 
 const runScript = async () => {
   setInterval(refreshToken, 3600 * 100);
-  try {
-    const allCustomers = await findAllCustomers();
-    console.log("response", Object.keys(allCustomers));
-  } catch(err) {
-    console.log(err);
+  for(let i = 0 ; i < 300000 ; i = i + 1000) {
+    await sleep(2000);
+    try {
+      const allCustomers = await findAllCustomers(i);
+      console.log("response", allCustomers.QueryResponse.Customer);
+      allCustomers.QueryResponse.Customer.forEach(customer => {
+        if (!!customerExist(customer.DisplayName)) {
+          console.log("Customer already exists");
+        } else {
+          customer = mongooseHelper.createCustomer({
+            displayName: customer.DisplayName,
+            id: customer.Id,
+          });
+        }
+      });
+    } catch(err) {
+      console.log(err);
+    }
   }
+  
   // let customers = fs.readFileSync("./data/customers-to-save.json");
 
   // let savedCustomers = await mongooseHelper.getAllCustomers();
