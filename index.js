@@ -243,12 +243,14 @@ const findAllCustomers = () => {
   const promise = new Promise((reject, resolve) => {
     qbo.findCustomers(
       {
-        fetchAll: true,
+        limit: 1000,
+        offset: 0,
       },
       function (err, customers) {
         if (err) {
           reject(err);
         }
+        console.log("----------chal rea---------");
         resolve(customers);
       }
     );
@@ -294,8 +296,12 @@ const refreshToken = async () => {
 
 const runScript = async () => {
   setInterval(refreshToken, 3600 * 100);
-  const allCustomers = await findAllCustomers();
-  console.log(allCustomers);
+  try {
+    const allCustomers = await findAllCustomers();
+    console.log("response", Object.keys(allCustomers));
+  } catch(err) {
+    console.log(err);
+  }
   // let customers = fs.readFileSync("./data/customers-to-save.json");
 
   // let savedCustomers = await mongooseHelper.getAllCustomers();
