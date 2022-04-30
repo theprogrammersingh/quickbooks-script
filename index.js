@@ -300,15 +300,17 @@ const runScript = async () => {
     try {
       const allCustomers = await findAllCustomers(i);
       console.log("response", allCustomers.QueryResponse.Customer);
+      const customersToCreate = [];
       allCustomers.QueryResponse.Customer.forEach(customer => {
         if (!!customerExist(customer.DisplayName)) {
           console.log("Customer already exists");
         } else {
-          customer = mongooseHelper.createCustomer({
+          customersToCreate.push({
             displayName: customer.DisplayName,
             id: customer.Id,
           });
         }
+        await mongooseHelper.Customer.insertMany(customersToCreate);
       });
     } catch(err) {
       console.log(err);
