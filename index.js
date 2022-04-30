@@ -301,17 +301,18 @@ const runScript = async () => {
       const allCustomers = await findAllCustomers(i);
       console.log("response", allCustomers.QueryResponse.Customer);
       const customersToCreate = [];
-      allCustomers.QueryResponse.Customer.forEach(customer => {
-        if (!!customerExist(customer.DisplayName)) {
+      const qboCustomers = allCustomers.QueryResponse.Customer;
+      for (let j = 0; j < qboCustomers.length; j++) {
+        if (!!customerExist(qboCustomers[j].DisplayName)) {
           console.log("Customer already exists");
         } else {
           customersToCreate.push({
-            displayName: customer.DisplayName,
-            id: customer.Id,
+            displayName: qboCustomers[j].DisplayName,
+            id: qboCustomers[j].Id,
           });
         }
-        await mongooseHelper.Customer.insertMany(customersToCreate);
-      });
+      }
+      await mongooseHelper.Customer.insertMany(customersToCreate);
     } catch(err) {
       console.log(err);
     }
