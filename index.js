@@ -295,11 +295,11 @@ const refreshToken = async () => {
 
 const runScript = async () => {
   setInterval(refreshToken, 3600 * 100);
-  for(let i = 0 ; i < 300000 ; i = i + 1000) {
+  for(let i = 0 ; i < 1000 ; i = i + 1000) {
     await sleep(2000);
     try {
       const allCustomers = await findAllCustomers(i);
-      console.log("response", allCustomers.QueryResponse.Customer);
+      // console.log("response", allCustomers.QueryResponse.Customer);
       const customersToCreate = [];
       const qboCustomers = allCustomers.QueryResponse.Customer;
       for (let j = 0; j < qboCustomers.length; j++) {
