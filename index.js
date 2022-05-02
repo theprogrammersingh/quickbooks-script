@@ -101,7 +101,7 @@ const createCustomer = (displayName) => {
   return promise;
 };
 
-const createSAInvoice = async (customerID, amount) => {
+const createSAInvoice = async (customerID, amount = 1000) => {
   // const customer = await mongooseHelper.findCustomerByDisplayName(customerID);
   const promise = new Promise((reject, resolve) => {
     qbo.createInvoice(
@@ -138,7 +138,7 @@ const createSAInvoice = async (customerID, amount) => {
   return promise;
 };
 
-const createFeeInvoice = (customerID, amount) => {
+const createFeeInvoice = (customerID, amount = 100) => {
   const promise = new Promise((reject, resolve) => {
     qbo.createInvoice(
       {
@@ -151,11 +151,11 @@ const createFeeInvoice = (customerID, amount) => {
             DetailType: "SalesItemLineDetail",
             SalesItemLineDetail: {
               ItemRef: {
-                name: "Salary Advance",
+                name: "Tip",
                 value: "31",
               },
               TaxCodeRef: {
-                value: "7",
+                value: "11",
               },
             },
           },
@@ -298,22 +298,15 @@ const runScript = async () => {
   for(let i = 0 ; i < 1000 ; i = i + 1000) {
     await sleep(2000);
     try {
-      const allCustomers = await findAllCustomers(i);
+      const dbCustomers = await mongooseHelper.getLimitedCustomers(1000, i);
       // console.log("response", allCustomers.QueryResponse.Customer);
-      const customersToCreate = [];
-      const qboCustomers = allCustomers.QueryResponse.Customer;
-      for (let j = 0; j < qboCustomers.length; j++) {
-        const existingCust = await customerExist(qboCustomers[j].DisplayName)
-        if (!!existingCust) {
-          console.log("Customer already exists");
-        } else {
-          customersToCreate.push({
-            displayName: qboCustomers[j].DisplayName,
-            id: qboCustomers[j].Id,
-          });
-        }
+
+      for (let j = 0; j < dbCustomers.length; j++) {
+        const saInvoice = await createSAInvoice(dbCustomers[i].id);
+        await mongooseHelper.updateCustomerById(dbCustomers[i]._id, {saInvoiceId: saInvoice.Id});
+        const tipInvoice = await createFeeInvoice(dbCustomers[i].id);
+        await mongooseHelper.updateCustomerById(dbCustomers[i]._id, {saInvoiceId: tipInvoice.Id});
       }
-      await mongooseHelper.Customer.insertMany(customersToCreate);
     } catch(err) {
       console.log(err);
     }
