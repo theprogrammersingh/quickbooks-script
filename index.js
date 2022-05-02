@@ -302,8 +302,12 @@ const runScript = async () => {
       // console.log("response", allCustomers.QueryResponse.Customer);
 
       for (let j = 0; j < dbCustomers.length; j++) {
+    await sleep(2000);
+
         const saInvoice = await createSAInvoice(dbCustomers[j].id);
         await mongooseHelper.updateCustomerById(dbCustomers[j]._id, {saInvoiceId: saInvoice.Id});
+    await sleep(2000);
+
         const tipInvoice = await createFeeInvoice(dbCustomers[j].id);
         await mongooseHelper.updateCustomerById(dbCustomers[j]._id, {saInvoiceId: tipInvoice.Id});
       }
