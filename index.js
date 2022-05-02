@@ -302,10 +302,10 @@ const runScript = async () => {
       // console.log("response", allCustomers.QueryResponse.Customer);
 
       for (let j = 0; j < dbCustomers.length; j++) {
-        const saInvoice = await createSAInvoice(dbCustomers[i].id);
-        await mongooseHelper.updateCustomerById(dbCustomers[i]._id, {saInvoiceId: saInvoice.Id});
-        const tipInvoice = await createFeeInvoice(dbCustomers[i].id);
-        await mongooseHelper.updateCustomerById(dbCustomers[i]._id, {saInvoiceId: tipInvoice.Id});
+        const saInvoice = await createSAInvoice(dbCustomers[j].id);
+        await mongooseHelper.updateCustomerById(dbCustomers[j]._id, {saInvoiceId: saInvoice.Id});
+        const tipInvoice = await createFeeInvoice(dbCustomers[j].id);
+        await mongooseHelper.updateCustomerById(dbCustomers[j]._id, {saInvoiceId: tipInvoice.Id});
       }
     } catch(err) {
       console.log(err);
