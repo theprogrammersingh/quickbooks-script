@@ -78,7 +78,7 @@ const customerExist = async (displayName) => {
 
 // ******************************************** define QBO functions *****************************************************
 const createCustomer = (displayName) => {
-  const promise = new Promise((reject, resolve) => {
+  const promise = new Promise((resolve, reject) => {
     console.log("Creating Customer", displayName);
     qbo.createCustomer({ DisplayName: displayName }, async (err, customer) => {
       if (err) {
@@ -103,7 +103,7 @@ const createCustomer = (displayName) => {
 
 const createSAInvoice = async (customerID, amount = 1000) => {
   // const customer = await mongooseHelper.findCustomerByDisplayName(customerID);
-  const promise = new Promise((reject, resolve) => {
+  const promise = new Promise((resolve, reject) => {
     qbo.createInvoice(
       {
         CustomerRef: {
@@ -139,7 +139,7 @@ const createSAInvoice = async (customerID, amount = 1000) => {
 };
 
 const createFeeInvoice = (customerID, amount = 100) => {
-  const promise = new Promise((reject, resolve) => {
+  const promise = new Promise((resolve, reject) => {
     qbo.createInvoice(
       {
         CustomerRef: {
@@ -175,7 +175,7 @@ const createFeeInvoice = (customerID, amount = 100) => {
 };
 
 const createPayment = (customerId, amount, invoiceId) => {
-  const promise = new Promise((reject, resolve) => {
+  const promise = new Promise((resolve, reject) => {
     qbo.createPayment(
       {
         CustomerRef: {
@@ -207,7 +207,7 @@ const createPayment = (customerId, amount, invoiceId) => {
 };
 
 const createDeposit = (paymentId, amount) => {
-  const promise = new Promise((reject, resolve) => {
+  const promise = new Promise((resolve, reject) => {
     qbo.createDeposit(
       {
         DepositToAccountRef: {
