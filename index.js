@@ -107,7 +107,7 @@ const createSAInvoice = async (customerID, amount = 1000) => {
     qbo.createInvoice(
       {
         CustomerRef: {
-          value: customer._id,
+          value: customerID,
         },
         Line: [
           {
