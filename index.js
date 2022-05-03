@@ -124,8 +124,8 @@ const createSAInvoice = async (customerID, amount = 1000) => {
             },
           },
         ],
-        DueDate: "2020-31-01",
-        TxnDate: "2020-25-01",
+        DueDate: "2020-01-31",
+        TxnDate: "2020-01-25",
       },
       function (err, invoice) {
         if (err) {
@@ -160,8 +160,8 @@ const createFeeInvoice = (customerID, amount = 100) => {
             },
           },
         ],
-        DueDate: "2020-31-01",
-        TxnDate: "2020-25-01",
+        DueDate: "2020-01-31",
+        TxnDate: "2020-01-25",
       },
       function (err, invoice) {
         if (err) {

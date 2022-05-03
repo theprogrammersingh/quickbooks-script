@@ -27,7 +27,7 @@ const getLimitedCustomers = async(limit, offset) => {
 }
 
 const updateCustomerById = async (id, data) => {
-  Customer.findByIdAndUpdate(id, data)
+  return Customer.findByIdAndUpdate(id, data).exec();
 }
 
 const mongooseHelper = {
