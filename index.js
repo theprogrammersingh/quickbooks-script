@@ -309,7 +309,7 @@ const runScript = async () => {
     await sleep(2000);
 
         const tipInvoice = await createFeeInvoice(dbCustomers[j].id);
-        await mongooseHelper.updateCustomerById(dbCustomers[j]._id, {saInvoiceId: tipInvoice.Id});
+        await mongooseHelper.updateCustomerById(dbCustomers[j]._id, {tipInvoiceId: tipInvoice.Id});
       }
     } catch(err) {
       console.log(err);
